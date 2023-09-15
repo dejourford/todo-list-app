@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: #eee;
+}
+
+header, footer {
+    background: gray;
+}
+
+header {
+    padding: 2em;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+footer {
+    padding: 1em;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+main {
+    display: flex;
+    min-height: calc(100vh - 140px)
+}
+
+.left-column {
+    background: lightgray;
+    width: 20%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.link {
+    padding: 0.7em 0.3em;
+    cursor: pointer;
+    border-radius: 0.2em;
+}
+
+.link:hover {
+    background: crimson;
+    width: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.add-project-btn {
+    border: none;
+    background: none;
+    display: flex;
+    gap: 1em;
+    cursor: pointer;
+    padding: 0.7em 0.3em;
+    border-radius: 0.2em;
+}
+
+.add-project-btn:hover {
+    background: crimson;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+input {
+    width: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1em;
+}
+
+.add-btn, .cancel-btn {
+    width: 100%;
+}
+
+.add-task-btn {
+    border: none;
+    background: none;
+    display: flex;
+    gap: 1em;
+    cursor: pointer;
+    padding: 0.7em 0.3em;
+    border-radius: 0.2em;
+    width: 100%;
+    border: none;
+}
+
+.add-task-btn:hover {
+    background: crimson;
+}
+
+.right-column {
+    background: #eee;
+    width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+
+
