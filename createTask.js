@@ -1,20 +1,19 @@
 export default function createTask(title, description, duedate, priority) {
-
-      return {
+    return {
         title: title,
         description: description,
-        duedate: duedate, 
+        duedate: duedate,
         priority: priority,
-        getTitle: function() {
+        getTitle: function () {
             return `Title: ${this.title}`
         },
-        getDescription: function() {
+        getDescription: function () {
             return `Description: ${this.description}`
         },
-        getDueDate: function() {
+        getDueDate: function () {
             return `Due Date: ${this.duedate}`
         },
-        getPriority: function() {
+        getPriority: function () {
             return `Priority: ${this.priority}`
         }
     }

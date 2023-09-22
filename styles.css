@@ -159,3 +159,7 @@ input {
     display: none;
 }
 
+.task-item {
+    background: crimson;
+    padding: 1em;
+}

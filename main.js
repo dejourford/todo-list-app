@@ -7,9 +7,7 @@ import createTask from "./createTask.js"
         const addTaskForm = document.querySelector('#add-task-form')
         const addBtn = document.querySelectorAll('.add-btn')
         const cancelBtn = document.querySelectorAll('.cancel-btn')
-
-
-
+        const taskItemsSection = document.querySelector('.task-items')
 
         addProjectBtn.addEventListener('click', function () {
                 addProjectForm.style.display = 'flex'
@@ -21,20 +19,56 @@ import createTask from "./createTask.js"
                 addTaskBtn.style.display = 'none'
         })
 
-        addBtn.forEach((button) =>  {
-                button.addEventListener('click', function(e) {
+
+
+
+        // create listener for adding tasks
+        addBtn.forEach((button) => {
+                button.addEventListener('click', function (e) {
                         e.preventDefault()
-                        console.log('clicked')
+                        addProjectForm.style.display = 'none'
+                        addTaskForm.style.display = 'none'
+                        addProjectBtn.style.display = 'flex'
+                        addTaskBtn.style.display = 'flex'
+
+
+                        // grab input content
+                       const projectInputValue = document.querySelector('.add-project-input').value
+                       const taskInputValue = document.querySelector('.add-task-input').value
+                        projectInputValue ? console.log(`The project task is: ${projectInputValue}`) : console.log(`The project task is: ${projectInputValue}`)
+                        taskInputValue ? console.log(`The inbox task is: ${taskInputValue}`) : console.log(`The inbox task is: ${taskInputValue}`)
+
+
+                        // reset input field after submit
+                        addProjectForm.reset()
+                        addTaskForm.reset()
+
+                        // append values to DOM
+                        // create function for creating a task item
+                        const taskItem = document.createElement('p')
+                        taskItem.className = 'task-item'
+                        taskItem.textContent = taskInputValue
+                        if (taskInputValue) {
+                                taskItemsSection.insertBefore(taskItem, addTaskBtn)
+                        }
+                        
                 })
         })
 
 
-        cancelBtn.forEach((button) =>  {
-                button.addEventListener('click', function(e) {
+        cancelBtn.forEach((button) => {
+                button.addEventListener('click', function (e) {
                         e.preventDefault()
-                        console.log('clicked')
+                        console.log('form closed')
+                        addProjectForm.style.display = 'none'
+                        addTaskForm.style.display = 'none'
+                        addProjectBtn.style.display = 'flex'
+                        addTaskBtn.style.display = 'flex'
                 })
         })
+
+
+
 
 })()
 
