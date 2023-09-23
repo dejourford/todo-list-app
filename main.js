@@ -8,6 +8,7 @@ import createTask from "./createTask.js"
         const addBtn = document.querySelectorAll('.add-btn')
         const cancelBtn = document.querySelectorAll('.cancel-btn')
         const taskItemsSection = document.querySelector('.task-items')
+        const projectItemsSection = document.querySelector('.left-column')
 
         addProjectBtn.addEventListener('click', function () {
                 addProjectForm.style.display = 'flex'
@@ -50,6 +51,15 @@ import createTask from "./createTask.js"
                         taskItem.textContent = taskInputValue
                         if (taskInputValue) {
                                 taskItemsSection.insertBefore(taskItem, addTaskBtn)
+                        }
+
+
+                        // create function for creating a project item
+                        const projectItem = document.createElement('p')
+                        projectItem.className = 'project-item'
+                        projectItem.textContent = projectInputValue
+                        if (projectInputValue) {
+                                projectItemsSection.insertBefore(projectItem, addProjectBtn)
                         }
                         
                 })
