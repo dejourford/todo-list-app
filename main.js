@@ -46,16 +46,21 @@ import createTask from "./createTask.js"
 
                         // append values to DOM
                         // create function for creating a task item
-                        const taskItem = document.createElement('p')
+                        const taskItem = document.createElement('li')
                         taskItem.className = 'task-item'
-                        taskItem.textContent = taskInputValue
+                        const taskItemText = document.createElement('p')
+                        taskItemText.textContent = taskInputValue
+                        const taskItemCheckbox = document.createElement('input')
+                        taskItemCheckbox.className = 'task-item-checkbox-input'
+                        taskItemCheckbox.type = 'checkbox'
+                        taskItem.append(taskItemCheckbox, taskItemText)
                         if (taskInputValue) {
                                 taskItemsSection.insertBefore(taskItem, addTaskBtn)
                         }
 
 
                         // create function for creating a project item
-                        const projectItem = document.createElement('p')
+                        const projectItem = document.createElement('li')
                         projectItem.className = 'project-item'
                         projectItem.textContent = projectInputValue
                         if (projectInputValue) {

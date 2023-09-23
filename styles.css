@@ -162,4 +162,26 @@ input {
 .task-item {
     background: crimson;
     padding: 1em;
+    border-radius: 0.4em;
+    display: flex;
+    gap: 1em;
+}
+
+.task-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.project-item {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.project-item:hover {
+    background: crimson;
+}
+
+.task-item-checkbox-input {
+    width: auto;
 }
