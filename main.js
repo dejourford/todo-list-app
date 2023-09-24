@@ -9,6 +9,8 @@ import createTask from "./createTask.js"
         const cancelBtn = document.querySelectorAll('.cancel-btn')
         const taskItemsSection = document.querySelector('.task-items')
         const projectItemsSection = document.querySelector('.left-column')
+        const taskArray = []
+
 
         addProjectBtn.addEventListener('click', function () {
                 addProjectForm.style.display = 'flex'
@@ -56,6 +58,8 @@ import createTask from "./createTask.js"
                         taskItem.append(taskItemCheckbox, taskItemText)
                         if (taskInputValue) {
                                 taskItemsSection.insertBefore(taskItem, addTaskBtn)
+                                taskArray.push(taskInputValue)
+                                console.log(taskArray)
                         }
 
 
@@ -66,8 +70,11 @@ import createTask from "./createTask.js"
                         if (projectInputValue) {
                                 projectItemsSection.insertBefore(projectItem, addProjectBtn)
                         }
-                        
+
                 })
+
+                
+        
         })
 
 
@@ -84,10 +91,8 @@ import createTask from "./createTask.js"
 
 
 
-
 })()
 
-let testing = createTask('this is a test', 'testing', 123)
-console.log(testing)
+
 
 
