@@ -29,15 +29,26 @@ const taskForm = document.querySelector('#add-task-form')
 taskForm.addEventListener('submit', function(e) {
         e.preventDefault()
         // grab input value
-        const taskInputValue = taskInput.value
+        const taskInputValue = taskInput.value.trim()
         console.log(taskInputValue)
 
         // validate input
+        if (taskInputValue == '') {
+                alert('Please enter a valid value!')
+                return
+        }
 
         // create a task object with input values
+        const task = {
+                title: taskInputValue,
+                completed: false
+        }
         // add task to array
+        tasks.push(task)
         // clear form inputs
+        taskInput.value = ''
         // display tasks
+        displayTasks()
 
 })
 
@@ -54,6 +65,12 @@ cancelBtn.forEach((button) => {
 
 
 // create display function for tasks in array
+function displayTasks() {
+        console.log(tasks)
+        tasks.forEach((task) => {
+                console.log(task)
+        })
+}
 // create inner html for each task
 // create event listeners for task buttons
 // append task to task list section
