@@ -1,7 +1,4 @@
 
-import createTask from "./createTask.js"
-
-
 const addProjectBtn = document.querySelector('.add-project-btn')
 const addProjectForm = document.querySelector('#add-project-form')
 const addTaskBtn = document.querySelector('.add-task-btn')
