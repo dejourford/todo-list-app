@@ -1,3 +1,4 @@
+
 import createTask from "./createTask.js"
 
 
@@ -66,14 +67,31 @@ cancelBtn.forEach((button) => {
 
 // create display function for tasks in array
 function displayTasks() {
+        taskItemsSection.innerHTML = ''
         console.log(tasks)
         tasks.forEach((task) => {
                 console.log(task)
+                
+                // create each task item
+                const taskItem = document.createElement('li')
+                taskItem.className = 'task-item'
+                taskItem.innerHTML = `
+                <div class="task-item-left">
+                <input type="checkbox" class="task-item-checkbox" ${task.completed ? 'checked' : ''}>
+                <span>${task.title}</span>
+                </div>
+                <div class="task-item-right">
+                <button class="delete-task-btn">X</button>
+                </div>
+                `
+                taskItemsSection.append(taskItem)
+
+                // create inner html for each task
+                // create event listeners for task buttons
+                // append task to task list section
         })
 }
-// create inner html for each task
-// create event listeners for task buttons
-// append task to task list section
+
 
 
 
