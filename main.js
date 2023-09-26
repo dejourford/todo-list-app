@@ -11,8 +11,8 @@ const cancelBtn = document.querySelectorAll('.cancel-btn')
 const taskItemsSection = document.querySelector('.task-items')
 const projectItemsSection = document.querySelector('.left-column')
 const taskInput = document.querySelector('.add-task-input')
-const tasks = []
-
+let tasks = []
+let objectIdCounter = 0
 
 addProjectBtn.addEventListener('click', function () {
         addProjectForm.style.display = 'flex'
@@ -27,7 +27,7 @@ addTaskBtn.addEventListener('click', function () {
 
 // get user input from fields on form submit
 const taskForm = document.querySelector('#add-task-form')
-taskForm.addEventListener('submit', function(e) {
+taskForm.addEventListener('submit', function (e) {
         e.preventDefault()
         // grab input value
         const taskInputValue = taskInput.value.trim()
@@ -41,6 +41,7 @@ taskForm.addEventListener('submit', function(e) {
 
         // create a task object with input values
         const task = {
+                id: objectIdCounter++,
                 title: taskInputValue,
                 completed: false
         }
@@ -71,10 +72,12 @@ function displayTasks() {
         console.log(tasks)
         tasks.forEach((task) => {
                 console.log(task)
-                
+
                 // create each task item
                 const taskItem = document.createElement('li')
                 taskItem.className = 'task-item'
+
+                // create inner html for each task
                 taskItem.innerHTML = `
                 <div class="task-item-left">
                 <input type="checkbox" class="task-item-checkbox" ${task.completed ? 'checked' : ''}>
@@ -84,11 +87,23 @@ function displayTasks() {
                 <button class="delete-task-btn">X</button>
                 </div>
                 `
-                taskItemsSection.append(taskItem)
 
-                // create inner html for each task
+
+
                 // create event listeners for task buttons
+                // listener for checkbox
+                taskItem.querySelector('.task-item-checkbox').addEventListener('change', function () {
+                        console.log('status has been changed!')
+                })
+                // listener for delete button
+                taskItem.querySelector('.delete-task-btn').addEventListener('click', function () {
+                        console.log('item has been requested to be deleted')
+                        tasks = tasks.filter((t) => t.id != task.id)
+                        displayTasks()
+                })
+                console.log(tasks)
                 // append task to task list section
+                taskItemsSection.append(taskItem)
         })
 }
 
