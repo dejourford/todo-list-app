@@ -163,11 +163,27 @@ input {
     padding: 1em;
     border-radius: 0.4em;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 1em;
+    width: 100%;
 }
 
 .task-item:hover {
     background: crimson;
+}
+
+.task-item-left {
+    display: flex;
+    gap: 1em;
+}
+
+.delete-task-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1.2rem;
+    background: inherit;
 }
 
 .task-items {
@@ -176,15 +192,6 @@ input {
     gap: 1em;
 }
 
-.project-item {
-    padding: 0.5em;
-    cursor: pointer;
-}
-
-.project-item:hover {
-    background: crimson;
-}
-
-.task-item-checkbox-input {
+.task-item-checkbox {
     width: auto;
 }
