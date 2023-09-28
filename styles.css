@@ -204,4 +204,14 @@ input {
     justify-content: space-between;
     gap: 1em;
     width: 100%;
+    cursor: pointer;
+}
+
+.project-item:hover {
+    background: crimson;
+}
+
+.task-item-left {
+    display: flex;
+    gap: 1em;
 }
