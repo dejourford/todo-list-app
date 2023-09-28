@@ -136,6 +136,7 @@ projectForm.addEventListener('submit', function(e) {
 
 // create element from projects array
 function displayProjects() {
+        projectSection.innerHTML = ''
         projects.forEach((project) => {
                 console.log(project)
                 const projectItem =  document.createElement('li')
@@ -151,9 +152,18 @@ function displayProjects() {
                 </div>
                 
                 `
+                
+
+                // create listeners for buttons on each task
+                projectItem.querySelector('.delete-task-btn').addEventListener('click', function() {
+                        console.log('this item will be deleted')
+                        projects = projects.filter((p) => p.id != project.id)
+                        displayProjects()
+                })
+                console.log(projects)
                 projectSection.append(projectItem)
         })
 }
 
-// display function to display all objects in array
+
 
