@@ -9,6 +9,7 @@ const taskItemsSection = document.querySelector('.task-items')
 const projectItemsSection = document.querySelector('.left-column')
 const taskInput = document.querySelector('.add-task-input')
 let tasks = []
+let projects = []
 let objectIdCounter = 0
 
 addProjectBtn.addEventListener('click', function () {
@@ -106,6 +107,53 @@ function displayTasks() {
 
 
 
+// get user input from project section
+const projectForm = document.querySelector('#add-project-form')
+const projectFormInput = document.querySelector('.add-project-input')
+const projectSection = document.querySelector('.project-section')
+projectForm.addEventListener('submit', function(e) {
+        e.preventDefault()
+        const projectTask = projectFormInput.value.trim()
+        console.log(projectTask)
+        
+        // create task object
+        const task = {
+                id: objectIdCounter++,
+                task: projectTask, 
+                completed: false
+        }
+        
+        // push element to project array
+        projects.push(task)
+        console.log(projects)
+        // clear form input after submit
+        projectFormInput.value = ''
 
+        // display projects
+        projectSection.innerHTML = ''
+        displayProjects()
+})
 
+// create element from projects array
+function displayProjects() {
+        projects.forEach((project) => {
+                console.log(project)
+                const projectItem =  document.createElement('li')
+                projectItem.className = 'project-item'
+                projectItem.innerHTML = `
+                <div class="task-item-left">
+                        <input type="checkbox" class="task-item-checkbox">
+                        <p>${project.task}</p>
+                </div>
+
+                <div class="task-item-right">
+                        <button class="delete-task-btn">X</button>
+                </div>
+                
+                `
+                projectSection.append(projectItem)
+        })
+}
+
+// display function to display all objects in array
 
