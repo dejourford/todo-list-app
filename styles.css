@@ -195,3 +195,13 @@ input {
 .task-item-checkbox {
     width: auto;
 }
+
+.project-item {
+    padding: 1em;
+    border-radius: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+}
